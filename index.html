@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Angel ❤️ Ayush</title>
+
+<style>
+body {
+  margin:0;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  text-align:center;
+  font-family: Arial;
+  overflow:hidden;
+}
+
+h1 {
+  color: white;
+  margin-top: 30px;
+  font-size: 35px;
+}
+
+#text {
+  color: white;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+img {
+  width: 150px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.heart {
+  position:absolute;
+  color:red;
+  font-size:20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 Angel Weds Ayush 💖</h1>
+
+<img src="https://i.imgur.com/8Km9tLL.png" alt="teddy">
+
+<div id="text"></div>
+
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+let messages = [
+"I love you meri jaan ❤️",
+"I love you madam ji 😘",
+"I love you meri rasmalai 🍮",
+"I love you meri patni ji 💍",
+"I love you meri cutie 😍",
+"I love you meri baccha 🥺",
+"I love you meri queen 👑",
+"I love you meri duniya 🌍",
+"I love you meri chocolate 🍫",
+"I love you meri sunshine ☀️",
+"I love you meri angel 😇",
+"I love you meri heartbeat 💓",
+"I love you meri life ❤️‍🔥",
+"I love you meri jaaneman 😘",
+"I love you meri sweetu 🍭",
+"I love you meri princess 👸",
+"I love you meri everything 💫",
+"I love you meri honey 🍯",
+"I love you meri jaanu 😘",
+"I love you meri doll 🧸",
+"I love you meri smile 😊",
+"I love you meri khushi 😄",
+"I love you meri shona 😘",
+"I love you meri lucky charm 🍀",
+"I love you meri sweetheart 💖",
+"I love you meri soulmate 💫",
+"I love you meri pretty girl 😍",
+"I love you meri forever ❤️",
+"I love you meri jaan ki jaan ❤️‍🔥",
+"I love you meri world 🌍",
+"I love you meri baby doll 🧸",
+"I love you meri dream girl 💭",
+"I love you meri happiness 💖",
+"I love you meri jaanu queen 👑",
+"I love you meri everything forever ♾️",
+"I love you meri cute si wife 💍",
+"I love you meri jaan meri jaan 💕",
+"I love you meri sunshine girl ☀️",
+"I love you meri cuteness overload 🥺",
+"I love you meri life partner 💍",
+"I love you meri heart ❤️",
+"I love you meri jaanu sweetheart 😘",
+"I love you meri lovely 😘",
+"I love you meri angel forever 😇",
+"I love you meri jaan always 💖",
+"I love you meri pyari si girl 💕",
+"I love you meri sab kuch ❤️",
+"I love you meri jaanu baby 🍼",
+"I LOVE YOUUUUU ❤️❤️❤️"
+];
+
+let i = 0;
+setInterval(() => {
+  document.getElementById("text").innerHTML = messages[i];
+  i = (i + 1) % messages.length;
+}, 1500);
+
+// hearts animation
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.className = "heart";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (10 + Math.random()*20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 300);
+
+</script>
+
+</body>
+</html>
