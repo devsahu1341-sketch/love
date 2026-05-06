@@ -50,7 +50,10 @@ img {
 
 <img src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png" alt="teddy" style="width:180px;">
 <div id="text"></div>
-
+<button onclick="alert('I love you Angel 💖 Will you stay with me forever? 😏')" 
+style="margin-top:20px; padding:10px 20px; font-size:16px; border:none; border-radius:10px; background:red; color:white;">
+Click me 💌
+</button>
 <audio autoplay loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
@@ -110,10 +113,18 @@ let messages = [
 ];
 
 let i = 0;
-setInterval(() => {
-  document.getElementById("text").innerHTML = messages[i];
-  i = (i + 1) % messages.length;
-}, 1500);
+let text = "I love you Angel 💖🥺";
+let i = 0;
+
+function type() {
+  if (i < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 80);
+  }
+}
+
+type();
 
 // hearts animation
 setInterval(() => {
