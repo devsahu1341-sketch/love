@@ -6,16 +6,15 @@
 <style>
 body {
   margin:0;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  background: linear-gradient(to right, pink, lightblue);
   text-align:center;
   font-family: Arial;
   overflow:hidden;
 }
 
 h1 {
-  color: white;
+  color: red;
   margin-top: 30px;
-  font-size: 35px;
 }
 
 #text {
@@ -25,15 +24,13 @@ h1 {
 }
 
 img {
-  width: 150px;
+  width: 180px;
   margin-top: 20px;
-  border-radius: 20px;
 }
 
 .heart {
   position:absolute;
   color:red;
-  font-size:20px;
   animation: float 5s linear infinite;
 }
 
@@ -48,19 +45,18 @@ img {
 
 <h1>💖 Angel Weds Ayush 💖</h1>
 
-<img src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png" alt="teddy" style="width:180px;">
+<img src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png">
+
 <div id="text"></div>
+
 <button onclick="showLove()" 
 style="margin-top:20px; padding:12px 25px; font-size:18px; border:none; border-radius:12px; background:#ff4d6d; color:white;">
 Click me 💌
 </button>
-</button>
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
 
 <script>
 
+// 💬 Love messages
 let messages = [
 "I love you meri jaan ❤️",
 "I love you madam ji 😘",
@@ -110,24 +106,21 @@ let messages = [
 "I love you meri pyari si girl 💕",
 "I love you meri sab kuch ❤️",
 "I love you meri jaanu baby 🍼",
+"I love you meri zindagi 💞",
+"I love you meri duniya ki sabse pyari 💓",
+"I love you meri muskaan 😊",
+"I love you meri jaan se bhi pyari ❤️",
+"I love you meri future wife 💍",
 "I LOVE YOUUUUU ❤️❤️❤️"
 ];
 
 let i = 0;
-let text = "I love you Angel 💖🥺";
-let i = 0;
+setInterval(() => {
+  document.getElementById("text").innerHTML = messages[i];
+  i = (i + 1) % messages.length;
+}, 1500);
 
-function type() {
-  if (i < text.length) {
-    document.getElementById("text").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 80);
-  }
-}
-
-type();
-
-// hearts animation
+// ❤️ Hearts
 setInterval(() => {
   let heart = document.createElement("div");
   heart.innerHTML = "❤️";
@@ -135,22 +128,24 @@ setInterval(() => {
   heart.style.left = Math.random()*100 + "vw";
   heart.style.fontSize = (10 + Math.random()*20) + "px";
   document.body.appendChild(heart);
-
   setTimeout(() => heart.remove(), 5000);
 }, 300);
+
+// 🌹 Proposal
 function showLove() {
   document.body.innerHTML = `
     <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:linear-gradient(to right, pink, lightblue); text-align:center;">
       
-      <h1 style="color:red; font-size:30px;">🌹 I LOVE YOU SO MUCH MADAM JI 🌹</h1>
+      <h1 style="color:red;">🌹 I LOVE YOU SO MUCH MADAM JI 🌹</h1>
       
-      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" style="width:150px; margin:20px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" style="width:150px;">
       
-      <h2 style="color:#333;">Will you stay with me forever? 💖🥺</h2>
+      <h2>Will you stay with me forever? 💖🥺</h2>
       
     </div>
   `;
 }
+
 </script>
 
 </body>
