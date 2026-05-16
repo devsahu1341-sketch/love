@@ -1,109 +1,67 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sorry Madam Ji 🥺❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ffd9e8,#ffeef6,#fff6fa);
+margin:0;
 overflow-x:hidden;
-color:#5b2d42;
-scroll-behavior:smooth;
-}
-
-body::before{
-content:'';
-position:fixed;
-width:600px;
-height:600px;
-background:rgba(255,105,180,0.18);
-filter:blur(120px);
-top:-200px;
-left:-200px;
-z-index:-1;
-}
-
-body::after{
-content:'';
-position:fixed;
-width:500px;
-height:500px;
-background:rgba(255,182,193,0.22);
-filter:blur(120px);
-bottom:-200px;
-right:-150px;
-z-index:-1;
-}
-
-section{
-padding:90px 20px;
-position:relative;
-text-align:center;
-}
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-overflow:hidden;
-}
-
-.hero h1{
-font-size:5rem;
-font-family:'Fredoka',sans-serif;
-color:#ff3f82;
-text-shadow:0 0 25px rgba(255,20,147,0.3);
-animation:fadeDown 1.5s ease;
-}
-
-.hero p{
-margin-top:20px;
-font-size:1.3rem;
-max-width:700px;
-line-height:1.7;
-animation:fadeUp 1.5s ease;
-}
-
-.glow-btn{
-padding:18px 38px;
-margin-top:35px;
-font-size:1.1rem;
-background:linear-gradient(135deg,#ff5fa2,#ff80b7);
+font-family:'Poppins',sans-serif;
+background:
+radial-gradient(circle at top left,#ff7eb3 0%,transparent 30%),
+radial-gradient(circle at bottom right,#ffb6d9 0%,transparent 35%),
+linear-gradient(135deg,#1c0f17,#2c1422,#40203a,#5a2b4c);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
 color:white;
-border:none;
-border-radius:50px;
-cursor:pointer;
-font-weight:600;
-box-shadow:0 0 25px rgba(255,105,180,0.4);
-transition:0.35s;
 }
 
-.glow-btn:hover{
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 35px rgba(255,20,147,0.55);
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-.floating-heart{
-position:absolute;
-font-size:22px;
+/* Floating Blur Circles */
+.blur{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.5;
+z-index:-1;
+animation:floatBlob 10s ease-in-out infinite alternate;
+}
+
+.blur1{
+width:350px;
+height:350px;
+background:#ff4f88;
+top:-100px;
+left:-100px;
+}
+
+.blur2{
+width:300px;
+height:300px;
+background:#ff9ac4;
+bottom:-100px;
+right:-100px;
+animation-delay:3s;
+}
+
+@keyframes floatBlob{
+from{
+transform:translateY(0px) translateX(0px);
+}
+to{
+transform:translateY(50px) translateX(30px);
+}
+}
+
+/* Floating Emojis */
+.float{
+position:fixed;
+font-size:24px;
+pointer-events:none;
 animation:floatUp linear infinite;
-opacity:0.7;
+opacity:0.8;
+z-index:1;
 }
 
 @keyframes floatUp{
@@ -111,7 +69,7 @@ opacity:0.7;
 transform:translateY(100vh) rotate(0deg);
 opacity:0;
 }
-10%{
+20%{
 opacity:1;
 }
 100%{
@@ -120,92 +78,121 @@ opacity:0;
 }
 }
 
-@keyframes fadeDown{
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.hero h1{
+font-size:5rem;
+color:#ff8ec7;
+text-shadow:0 0 20px rgba(255,105,180,0.8);
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
 from{
-opacity:0;
-transform:translateY(-60px);
+text-shadow:0 0 10px #ff5fa2;
 }
-
 to{
-opacity:1;
-transform:translateY(0);
+text-shadow:0 0 30px #ffb6d9;
 }
 }
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(60px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.glass-box{
-max-width:1000px;
-margin:auto;
-background:rgba(255,255,255,0.35);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.3);
-border-radius:35px;
-padding:45px;
-box-shadow:0 10px 40px rgba(0,0,0,0.08);
-}
-
-.section-title{
-font-size:3rem;
-font-family:'Fredoka',sans-serif;
-margin-bottom:25px;
-color:#ff4d8d;
-}
-
-.cute-text{
-font-size:1.2rem;
+.hero p{
+max-width:700px;
+font-size:1.3rem;
 line-height:2;
+color:#ffeef6;
 }
 
-.card-grid{
+.btn{
+padding:18px 35px;
+border:none;
+border-radius:50px;
+margin-top:30px;
+font-size:1rem;
+font-weight:bold;
+cursor:pointer;
+background:linear-gradient(135deg,#ff5fa2,#ff8ec7);
+color:white;
+box-shadow:0 0 20px rgba(255,105,180,0.5);
+transition:0.4s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 35px rgba(255,105,180,0.9);
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.1);
+padding:40px;
+margin:40px auto;
+max-width:1000px;
+border-radius:30px;
+box-shadow:0 0 30px rgba(255,255,255,0.08);
+}
+
+.title{
+font-size:3rem;
+margin-bottom:20px;
+color:#ff9ac4;
+}
+
+.cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:40px;
+gap:20px;
+margin-top:30px;
 }
 
 .card{
-background:rgba(255,255,255,0.45);
-border-radius:28px;
-padding:30px 20px;
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:25px;
 transition:0.4s;
-backdrop-filter:blur(15px);
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.03);
+transform:translateY(-10px) scale(1.04);
+background:rgba(255,255,255,0.14);
 }
 
-.card h3{
-font-size:2.5rem;
-margin-bottom:15px;
+.big-heart{
+width:230px;
+height:230px;
+border-radius:50%;
+border:none;
+font-size:1.2rem;
+font-weight:bold;
+background:radial-gradient(circle,#ff8ec7,#ff4f88);
+color:white;
+box-shadow:0 0 40px rgba(255,105,180,0.6);
+cursor:pointer;
+transition:0.4s;
 }
 
-.letter{
-text-align:left;
-line-height:2;
-font-size:1.1rem;
+.big-heart:hover{
+transform:scale(1.07);
 }
 
-.typewriter{
-overflow:hidden;
-border-right:4px solid #ff4f88;
+.type{
+font-size:1.5rem;
+border-right:4px solid white;
 white-space:nowrap;
+overflow:hidden;
 width:0;
-animation:typing 7s steps(60,end) forwards,blink .8s infinite;
-font-size:1.4rem;
-font-weight:600;
+animation:typing 6s steps(60,end) forwards,blink .8s infinite;
 margin:auto;
 }
 
@@ -218,71 +205,16 @@ to{width:100%}
 50%{border-color:transparent}
 }
 
-.big-heart-btn{
-width:240px;
-height:240px;
-border-radius:50%;
-border:none;
-background:radial-gradient(circle,#ff7eb6,#ff4f88);
-color:white;
-font-size:1.2rem;
-font-weight:700;
-box-shadow:0 0 45px rgba(255,20,147,0.45);
-transition:0.4s;
-}
-
-.big-heart-btn:hover{
-transform:scale(1.08);
-}
-
-.final-buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:25px;
-margin-top:35px;
-}
-
-.final-btn{
-padding:18px 35px;
-font-size:1.1rem;
-border:none;
-border-radius:50px;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.green{
-background:#c6ff9d;
-}
-
-.purple{
-background:#d59cff;
-}
-
-.final-btn:hover{
-transform:scale(1.08);
-}
-
-#popup-container{
+.popup{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+font-size:1.3rem;
+font-weight:bold;
+animation:popup 4s linear forwards;
 pointer-events:none;
 z-index:9999;
 }
 
-.popup{
-position:absolute;
-font-size:1.3rem;
-font-weight:700;
-animation:popupMove 4s linear forwards;
-}
-
-@keyframes popupMove{
+@keyframes popup{
 0%{
 transform:translateY(0);
 opacity:1;
@@ -293,29 +225,43 @@ opacity:0;
 }
 }
 
-.hidden{
-display:none;
+.final-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.final-btn{
+padding:18px 35px;
+font-size:1rem;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.final-btn:hover{
+transform:scale(1.08);
+}
+
+.green{
+background:#b7ffb0;
+}
+
+.purple{
+background:#d39cff;
 }
 
 .big-letter{
 margin-top:35px;
-background:rgba(255,255,255,0.5);
 padding:40px;
-border-radius:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.08);
 line-height:2;
 font-size:1.1rem;
-}
-
-.timer-box{
-font-size:2rem;
-font-weight:700;
-margin-top:20px;
-}
-
-footer{
-padding:40px;
-text-align:center;
-font-size:1rem;
 }
 
 .cursor-heart{
@@ -335,58 +281,36 @@ opacity:0;
 transform:translateY(-20px) scale(0.5);
 }
 }
-
-@media(max-width:768px){
-.hero h1{
-font-size:3rem;
-}
-
-.section-title{
-font-size:2.2rem;
-}
-
-.typewriter{
-font-size:1rem;
-white-space:normal;
-border-right:none;
-animation:none;
-width:100%;
-}
-}
 </style>
 
-</head>
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
 
-<body>
-
-<div id="popup-container"></div>
-
-<section class="hero">
+<div class="hero">
 <h1>Sorry Madam Ji 🥺❤️</h1>
+
 <p>
 Ye page ek overthinking sir ji ne banaya hai jo apni madam ji ko mana raha hai 😭❤️
 </p>
 
-<button class="glow-btn" onclick="scrollToIntro()">
+<button class="btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
 Aage badhu ya gussa hi rahogi? 🥺
 </button>
-</section>
+</div>
 
-<section id="intro">
-<div class="glass-box">
-<h2 class="section-title">Dear Angel... 🥺</h2>
-<p class="cute-text">
+<div class="glass" id="intro">
+<h2 class="title">Dear Angel... 🥺</h2>
+
+<p style="line-height:2;font-size:1.2rem;">
 Ladai to ho gayi... <br><br>
-par aap bina din bohot ajeeb jaa raha hai 😭❤️<br><br>
-Aur honestly... aapka gussa bhi miss ho raha hai 🥲
+par aap bina din bohot ajeeb jaa raha hai 😭❤️
 </p>
 </div>
-</section>
 
-<section>
-<h2 class="section-title">Things I Miss 😭</h2>
+<div class="glass">
+<h2 class="title">Things I Miss 😭</h2>
 
-<div class="card-grid">
+<div class="cards">
 
 <div class="card">
 <h3>😤</h3>
@@ -405,67 +329,60 @@ Aur honestly... aapka gussa bhi miss ho raha hai 🥲
 
 <div class="card">
 <h3>🥺</h3>
-<p>Aapka mujhe bina reason daantna 😭</p>
+<p>Aapka mujhe daantna 😭</p>
 </div>
 
 </div>
-</section>
+</div>
 
-<section>
-<div class="glass-box letter">
-<h2 class="section-title">Official Apology Letter 💌</h2>
+<div class="glass">
+<h2 class="title">Official Apology Letter 💌</h2>
 
+<p style="line-height:2;font-size:1.1rem;">
 Madam ji... ❤️<br><br>
 
-Galtiyan meri bhi thi, aur shayad mai bohot over ho gaya tha 😔<br><br>
+Galtiyan meri bhi thi 😔<br><br>
 
-Par ek baat sach hai... jo bhi tha dil se tha.
-Kabhi intentionally hurt nahi karna chaha 🥺<br><br>
+Par ek baat sach hai... jo bhi tha dil se tha 🥺❤️<br><br>
 
 Mujhe bas hum waapis chahiye... perfect nahi ❤️
-
+</p>
 </div>
-</section>
 
-<section>
-<h2 class="section-title">Emergency Hug Button 🫂</h2>
+<div class="glass">
+<h2 class="title">Emergency Hug Button 🫂</h2>
 
-<button class="big-heart-btn" onclick="hugMode()">
+<button class="big-heart" onclick="hugMode()">
 Press if you secretly miss your sir ji ❤️
 </button>
-</section>
+</div>
 
-<section>
-<div class="glass-box">
-<h2 class="section-title">Mood Melt Time ✨</h2>
-<div class="typewriter">
+<div class="glass">
+<h2 class="title">Mood Melt Time ✨</h2>
+
+<div class="type">
 Rishte perfect nahi hote... par kuch log perfect se zyada important hote hain ❤️
 </div>
 </div>
-</section>
 
-<section>
-<h2 class="section-title">Sir Ji Control Button 😂</h2>
+<div class="glass">
+<h2 class="title">Sir Ji Control Button 😂</h2>
 
-<button class="glow-btn" onclick="slapMode()">
-Sir ji ko thappad lagao zyada bolne ke liye 😤
+<button class="btn" onclick="slapMode()">
+Sir ji ko thappad lagao 😭
 </button>
 
-<div id="slapText" class="hidden" style="margin-top:30px;font-size:1.3rem;">
-😭 Sir ji ache se samajh gaye ❤️<br><br>
-Ab zyada tez nahi chalenge madam ji 🙇‍♂️
+<p id="slapText" style="display:none;margin-top:30px;font-size:1.3rem;">
+Sir ji ache se samajh gaye 🥺❤️<br><br>
+Ab zyada tez nahi chalenge 🙇‍♂️
+</p>
 </div>
-</section>
 
-<section>
-<h2 class="section-title">Sir Ji Sad Timer ⏳😭</h2>
-<div class="timer-box" id="timer"></div>
-</section>
-
-<section>
-<h2 class="section-title">Decision Time Madam Ji 😔</h2>
+<div class="glass">
+<h2 class="title">Decision Time Madam Ji 😔</h2>
 
 <div class="final-buttons">
+
 <button class="final-btn green" onclick="forgiveMode()">
 Maaf kiya 😌❤️
 </button>
@@ -473,70 +390,84 @@ Maaf kiya 😌❤️
 <button class="final-btn purple" onclick="moreManana()">
 Thoda aur manana padega 😏
 </button>
+
 </div>
 
 <div id="bigLetter"></div>
-</section>
-
-<footer>
-Chahe kitni bhi ladai ho... ❤️<br>
-Sir ji ki favourite person hamesha madam ji hi rahengi 🥺
-</footer>
+</div>
 
 <script>
 
-function scrollToIntro(){
-document.getElementById('intro').scrollIntoView({behavior:'smooth'});
-}
+/* Floating Emojis */
 
-function createFloating(){
-const emojis=['❤️','🥺','😭','🫂','✨','😘'];
-const heart=document.createElement('div');
-heart.classList.add('floating-heart');
-heart.innerText=emojis[Math.floor(Math.random()*emojis.length)];
-heart.style.left=Math.random()*100+'vw';
-heart.style.animationDuration=(5+Math.random()*6)+'s';
-document.body.appendChild(heart);
+function createFloat(){
+const emojis=['❤️','😭','🥺','🫂','✨','😘'];
+
+const el=document.createElement('div');
+
+el.className='float';
+el.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+
+el.style.left=Math.random()*100+'vw';
+el.style.animationDuration=(5+Math.random()*5)+'s';
+
+document.body.appendChild(el);
 
 setTimeout(()=>{
-heart.remove();
-},11000);
+el.remove();
+},10000);
 }
 
-setInterval(createFloating,350);
+setInterval(createFloat,250);
+
+/* Popups */
 
 function popup(text){
+
 const pop=document.createElement('div');
-pop.classList.add('popup');
+
+pop.className='popup';
 pop.innerText=text;
+
 pop.style.left=Math.random()*80+'vw';
 pop.style.top=Math.random()*80+'vh';
-document.getElementById('popup-container').appendChild(pop);
+
+document.body.appendChild(pop);
 
 setTimeout(()=>{
 pop.remove();
 },4000);
 }
 
+/* Hug Mode */
+
 function hugMode(){
+
 popup('I knew it 😎❤️');
 popup('Virtual hug incoming 🫂');
 popup('Madam ji secretly miss kar rahi hai 😭❤️');
 
-for(let i=0;i<80;i++){
+for(let i=0;i<100;i++){
+
 setTimeout(()=>{
 popup('❤️');
-},i*70);
+},i*60);
+
 }
 }
 
+/* Slap */
+
 function slapMode(){
-document.getElementById('slapText').classList.remove('hidden');
+
+document.getElementById('slapText').style.display='block';
 
 popup('😭 THAPPAD RECEIVED');
 popup('Sir ji sudhar gaye ❤️');
 popup('Ab zyada tez nahi chalenge 🥺');
 }
+
+/* Forgive Mode */
 
 function forgiveMode(){
 
@@ -545,77 +476,78 @@ const msgs=[
 'YIPPEEEEE 🫂',
 'MISSION SUCCESS 😎❤️',
 'LOVE YOU MERI CUTIE ❤️',
-'LOVE YOU MERI KAJUKATLI 😭',
+'MERI KAJUKATLI 😭',
 'MERI LADNE WALI BIWI 🫂',
-'MERI GUSSE WALI PRINCESS 😭❤️',
+'MERI MADAM JI 🥺',
 'MERI OVERTHINKING QUEEN 👑',
-'MERI CUTE SI PANI JI ❤️',
-'MERI MADAM JI 🥺'
+'MERI GUSSE WALI PRINCESS ❤️'
 ];
 
-for(let i=0;i<150;i++){
+for(let i=0;i<200;i++){
+
 setTimeout(()=>{
 popup(msgs[Math.floor(Math.random()*msgs.length)]);
 },i*120);
+
 }
 }
+
+/* More Manana */
 
 function moreManana(){
 
 document.getElementById('bigLetter').innerHTML=`
+
 <div class="big-letter">
-<h1 style="font-size:3rem;color:#ff4f88;margin-bottom:25px;">
+
+<h1 style="font-size:3rem;color:#ff9ac4;">
 MYYY MISSSS PARAM SUNDER MADAM JI 😭❤️
 </h1>
 
+<br>
+
 <p>
+
 Madam ji... 🥺❤️<br><br>
 
-Galtiyan hui mujhse, aur genuinely sorry hu 😔<br><br>
+Galtiyan hui mujhse 😔<br><br>
 
-Par aap bina sab ajeeb lag raha hai 😭<br><br>
+Par aap bina sab ajeeb lag raha hai 😭❤️<br><br>
 
 Aap gussa ho sakti ho,
 daant sakti ho,
 virtual thappad bhi maar sakti ho 😭❤️<br><br>
 
-Par please ekdum se door mat ho jana 🫂<br><br>
+Par please ekdum se door mat ho jana 🫂❤️<br><br>
 
 Sir ji genuinely aapse bohot pyaar karte hai ❤️
+
 </p>
+
 </div>
+
 `;
+
 }
 
-const startDate=new Date('2025-01-01');
-
-function updateTimer(){
-const now=new Date();
-const diff=now-startDate;
-const days=Math.floor(diff/(1000*60*60*24));
-document.getElementById('timer').innerHTML=
-`${days} days se sir ji sad baithe hai 😭❤️`;
-}
-
-updateTimer();
-
-setInterval(updateTimer,1000);
+/* Cursor Hearts */
 
 document.addEventListener('mousemove',function(e){
+
 const heart=document.createElement('div');
-heart.classList.add('cursor-heart');
+
+heart.className='cursor-heart';
 heart.innerText='❤️';
+
 heart.style.left=e.clientX+'px';
 heart.style.top=e.clientY+'px';
+
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
 },1000);
+
 });
 
 </script>
-
-</body>
-</html>
-
