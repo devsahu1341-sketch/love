@@ -1,72 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Madam Ji 🥺❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
 margin:0;
-overflow-x:hidden;
+padding:0;
+box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-background:
-radial-gradient(circle at top left,#ff7eb3 0%,transparent 30%),
-radial-gradient(circle at bottom right,#ffb6d9 0%,transparent 35%),
-linear-gradient(135deg,#1c0f17,#2c1422,#40203a,#5a2b4c);
-background-size:400% 400%;
-animation:bgMove 15s ease infinite;
-color:white;
 }
 
-@keyframes bgMove{
+body{
+overflow:hidden;
+background:
+linear-gradient(-45deg,#ffb6d9,#ff8ec7,#ff6fae,#ffd6ea);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+color:white;
+height:100vh;
+}
+
+@keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
-/* Floating Blur Circles */
-.blur{
-position:fixed;
-border-radius:50%;
-filter:blur(120px);
-opacity:0.5;
-z-index:-1;
-animation:floatBlob 10s ease-in-out infinite alternate;
+.page{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+position:absolute;
+top:0;
+left:0;
+overflow:hidden;
 }
 
-.blur1{
-width:350px;
-height:350px;
-background:#ff4f88;
-top:-100px;
-left:-100px;
+.active{
+display:flex;
+animation:fade 1s;
 }
 
-.blur2{
-width:300px;
-height:300px;
-background:#ff9ac4;
-bottom:-100px;
-right:-100px;
-animation-delay:3s;
-}
-
-@keyframes floatBlob{
+@keyframes fade{
 from{
-transform:translateY(0px) translateX(0px);
+opacity:0;
+transform:scale(1.05);
 }
 to{
-transform:translateY(50px) translateX(30px);
+opacity:1;
+transform:scale(1);
 }
 }
 
-/* Floating Emojis */
+h1{
+font-family:'Fredoka',sans-serif;
+font-size:4rem;
+text-align:center;
+text-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+
+h2{
+font-family:'Fredoka',sans-serif;
+font-size:3rem;
+margin-bottom:20px;
+text-align:center;
+}
+
+p{
+font-size:1.2rem;
+line-height:2;
+text-align:center;
+max-width:800px;
+}
+
+.glass{
+background:rgba(255,255,255,0.12);
+border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(18px);
+padding:40px;
+border-radius:35px;
+box-shadow:0 0 40px rgba(255,255,255,0.1);
+position:relative;
+overflow:hidden;
+}
+
+.btn{
+padding:16px 35px;
+border:none;
+border-radius:50px;
+margin-top:30px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+background:white;
+color:#ff4f88;
+transition:0.4s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+width:100%;
+max-width:1000px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.12);
+padding:30px;
+border-radius:25px;
+transition:0.4s;
+backdrop-filter:blur(15px);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+.card h3{
+font-size:2rem;
+margin-bottom:15px;
+}
+
 .float{
-position:fixed;
-font-size:24px;
-pointer-events:none;
-animation:floatUp linear infinite;
+position:absolute;
+font-size:25px;
+animation:float linear infinite;
 opacity:0.8;
-z-index:1;
+pointer-events:none;
 }
 
-@keyframes floatUp{
+@keyframes float{
 0%{
-transform:translateY(100vh) rotate(0deg);
+transform:translateY(120vh) rotate(0deg);
 opacity:0;
 }
 20%{
@@ -78,140 +159,13 @@ opacity:0;
 }
 }
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-position:relative;
-overflow:hidden;
-}
-
-.hero h1{
-font-size:5rem;
-color:#ff8ec7;
-text-shadow:0 0 20px rgba(255,105,180,0.8);
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #ff5fa2;
-}
-to{
-text-shadow:0 0 30px #ffb6d9;
-}
-}
-
-.hero p{
-max-width:700px;
-font-size:1.3rem;
-line-height:2;
-color:#ffeef6;
-}
-
-.btn{
-padding:18px 35px;
-border:none;
-border-radius:50px;
-margin-top:30px;
-font-size:1rem;
-font-weight:bold;
-cursor:pointer;
-background:linear-gradient(135deg,#ff5fa2,#ff8ec7);
-color:white;
-box-shadow:0 0 20px rgba(255,105,180,0.5);
-transition:0.4s;
-}
-
-.btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 35px rgba(255,105,180,0.9);
-}
-
-.glass{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.1);
-padding:40px;
-margin:40px auto;
-max-width:1000px;
-border-radius:30px;
-box-shadow:0 0 30px rgba(255,255,255,0.08);
-}
-
-.title{
-font-size:3rem;
-margin-bottom:20px;
-color:#ff9ac4;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-padding:30px;
-border-radius:25px;
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.04);
-background:rgba(255,255,255,0.14);
-}
-
-.big-heart{
-width:230px;
-height:230px;
-border-radius:50%;
-border:none;
-font-size:1.2rem;
-font-weight:bold;
-background:radial-gradient(circle,#ff8ec7,#ff4f88);
-color:white;
-box-shadow:0 0 40px rgba(255,105,180,0.6);
-cursor:pointer;
-transition:0.4s;
-}
-
-.big-heart:hover{
-transform:scale(1.07);
-}
-
-.type{
-font-size:1.5rem;
-border-right:4px solid white;
-white-space:nowrap;
-overflow:hidden;
-width:0;
-animation:typing 6s steps(60,end) forwards,blink .8s infinite;
-margin:auto;
-}
-
-@keyframes typing{
-from{width:0}
-to{width:100%}
-}
-
-@keyframes blink{
-50%{border-color:transparent}
-}
-
 .popup{
 position:fixed;
 font-size:1.3rem;
 font-weight:bold;
 animation:popup 4s linear forwards;
-pointer-events:none;
 z-index:9999;
+pointer-events:none;
 }
 
 @keyframes popup{
@@ -220,58 +174,86 @@ transform:translateY(0);
 opacity:1;
 }
 100%{
-transform:translateY(-220px);
+transform:translateY(-200px);
 opacity:0;
 }
 }
 
+.big-heart{
+width:240px;
+height:240px;
+border-radius:50%;
+border:none;
+font-size:1.2rem;
+font-weight:bold;
+background:radial-gradient(circle,#ff8ec7,#ff4f88);
+color:white;
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+cursor:pointer;
+transition:0.4s;
+}
+
+.big-heart:hover{
+transform:scale(1.08);
+}
+
+.type{
+font-size:1.4rem;
+font-weight:600;
+text-align:center;
+max-width:900px;
+line-height:2;
+}
+
 .final-buttons{
 display:flex;
-justify-content:center;
 gap:20px;
 flex-wrap:wrap;
+justify-content:center;
 margin-top:30px;
 }
 
 .final-btn{
 padding:18px 35px;
-font-size:1rem;
 border:none;
 border-radius:50px;
+font-size:1rem;
+font-weight:600;
 cursor:pointer;
-font-weight:bold;
 transition:0.3s;
+}
+
+.green{
+background:#d1ffb5;
+color:#333;
+}
+
+.purple{
+background:#f0c1ff;
+color:#333;
 }
 
 .final-btn:hover{
 transform:scale(1.08);
 }
 
-.green{
-background:#b7ffb0;
-}
-
-.purple{
-background:#d39cff;
-}
-
 .big-letter{
-margin-top:35px;
-padding:40px;
-border-radius:25px;
-background:rgba(255,255,255,0.08);
+margin-top:30px;
+background:rgba(255,255,255,0.12);
+padding:35px;
+border-radius:30px;
 line-height:2;
-font-size:1.1rem;
+max-width:900px;
 }
 
 .cursor-heart{
 position:fixed;
 pointer-events:none;
 font-size:18px;
-animation:cursorFade 1s linear forwards;
+animation:cursor 1s linear forwards;
 }
 
-@keyframes cursorFade{
+@keyframes cursor{
 0%{
 opacity:1;
 transform:translateY(0) scale(1);
@@ -281,34 +263,83 @@ opacity:0;
 transform:translateY(-20px) scale(0.5);
 }
 }
+
+.bg-text{
+position:absolute;
+font-size:22px;
+opacity:0.08;
+font-weight:bold;
+white-space:nowrap;
+animation:moveText 15s linear infinite;
+}
+
+@keyframes moveText{
+from{
+transform:translateX(-120%);
+}
+to{
+transform:translateX(120%);
+}
+}
+
 </style>
+</head>
 
-<div class="blur blur1"></div>
-<div class="blur blur2"></div>
+<body>
 
-<div class="hero">
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<div class="glass">
+
 <h1>Sorry Madam Ji 🥺❤️</h1>
+
+<br>
 
 <p>
 Ye page ek overthinking sir ji ne banaya hai jo apni madam ji ko mana raha hai 😭❤️
 </p>
 
-<button class="btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
+<button class="btn" onclick="nextPage(2)">
 Aage badhu ya gussa hi rahogi? 🥺
 </button>
+
 </div>
 
-<div class="glass" id="intro">
-<h2 class="title">Dear Angel... 🥺</h2>
-
-<p style="line-height:2;font-size:1.2rem;">
-Ladai to ho gayi... <br><br>
-par aap bina din bohot ajeeb jaa raha hai 😭❤️
-</p>
 </div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
 
 <div class="glass">
-<h2 class="title">Things I Miss 😭</h2>
+
+<h2>Dear Angel... 🥺</h2>
+
+<p>
+Ladai to ho gayi... 😭❤️<br><br>
+
+par aap bina sab ajeeb lag raha hai 🥹🫂<br><br>
+
+Aur honestly... aapka gussa bhi miss ho raha hai 😭
+</p>
+
+<button class="btn" onclick="nextPage(3)">
+Thoda aur sun lo na 🥺
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="glass">
+
+<h2>Things I Miss 😭</h2>
 
 <div class="cards">
 
@@ -333,53 +364,122 @@ par aap bina din bohot ajeeb jaa raha hai 😭❤️
 </div>
 
 </div>
+
+<button class="btn" onclick="nextPage(4)">
+Aage badhe madam ji? ❤️
+</button>
+
 </div>
 
-<div class="glass">
-<h2 class="title">Official Apology Letter 💌</h2>
+</div>
 
-<p style="line-height:2;font-size:1.1rem;">
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<div class="glass">
+
+<h2>Official Apology Letter 💌</h2>
+
+<p>
+
+🥺❤️😭🫂🙇‍♂️<br><br>
+
 Madam ji... ❤️<br><br>
 
 Galtiyan meri bhi thi 😔<br><br>
 
 Par ek baat sach hai... jo bhi tha dil se tha 🥺❤️<br><br>
 
-Mujhe bas hum waapis chahiye... perfect nahi ❤️
+Kabhi intentionally hurt nahi karna chaha 😭🫂<br><br>
+
+Mujhe bas hum waapis chahiye... perfect nahi ❤️🥹
+
 </p>
+
+<button class="btn" onclick="nextPage(5)">
+Emergency Hug Time 🫂
+</button>
+
 </div>
 
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page" id="page5">
+
 <div class="glass">
-<h2 class="title">Emergency Hug Button 🫂</h2>
+
+<h2>Emergency Hug Button 🫂</h2>
 
 <button class="big-heart" onclick="hugMode()">
 Press if you secretly miss your sir ji ❤️
 </button>
-</div>
 
-<div class="glass">
-<h2 class="title">Mood Melt Time ✨</h2>
+<br>
 
-<div class="type">
-Rishte perfect nahi hote... par kuch log perfect se zyada important hote hain ❤️
-</div>
-</div>
-
-<div class="glass">
-<h2 class="title">Sir Ji Control Button 😂</h2>
-
-<button class="btn" onclick="slapMode()">
-Sir ji ko thappad lagao 😭
+<button class="btn" onclick="nextPage(6)">
+Aage 😭❤️
 </button>
 
-<p id="slapText" style="display:none;margin-top:30px;font-size:1.3rem;">
-Sir ji ache se samajh gaye 🥺❤️<br><br>
-Ab zyada tez nahi chalenge 🙇‍♂️
-</p>
 </div>
 
+</div>
+
+<!-- PAGE 6 -->
+
+<div class="page" id="page6">
+
 <div class="glass">
-<h2 class="title">Decision Time Madam Ji 😔</h2>
+
+<h2>Sir Ji Control Button 😂</h2>
+
+<button class="btn" id="slapBtn" onclick="slapMode()">
+1st thappad 😭
+</button>
+
+<p id="slapText" style="margin-top:30px;font-size:1.2rem;"></p>
+
+<br>
+
+<button class="btn" onclick="nextPage(7)">
+Mood Melt Time ✨
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 7 -->
+
+<div class="page" id="page7">
+
+<div class="glass">
+
+<h2>Mood Melt Time ✨</h2>
+
+<div class="type">
+Rishte perfect nahi hote... 🥺❤️<br><br>
+
+par kuch log perfect se zyada important hote hain 😭🫂
+</div>
+
+<button class="btn" onclick="nextPage(8)">
+Final Decision 😭
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 8 -->
+
+<div class="page" id="page8">
+
+<div class="glass">
+
+<h2>Decision Time Madam Ji 😔</h2>
 
 <div class="final-buttons">
 
@@ -394,21 +494,38 @@ Thoda aur manana padega 😏
 </div>
 
 <div id="bigLetter"></div>
+
+</div>
+
 </div>
 
 <script>
 
-/* Floating Emojis */
+/* PAGE SYSTEM */
+
+function nextPage(num){
+
+document.querySelectorAll('.page').forEach(page=>{
+page.classList.remove('active');
+});
+
+document.getElementById('page'+num).classList.add('active');
+}
+
+/* FLOATING EMOJIS */
 
 function createFloat(){
-const emojis=['❤️','😭','🥺','🫂','✨','😘'];
+
+const emojis=['❤️','😭','🥺','🫂','🙇‍♂️'];
 
 const el=document.createElement('div');
 
 el.className='float';
+
 el.innerText=emojis[Math.floor(Math.random()*emojis.length)];
 
 el.style.left=Math.random()*100+'vw';
+
 el.style.animationDuration=(5+Math.random()*5)+'s';
 
 document.body.appendChild(el);
@@ -420,13 +537,31 @@ el.remove();
 
 setInterval(createFloat,250);
 
-/* Popups */
+/* BACKGROUND TEXT */
+
+for(let i=0;i<15;i++){
+
+const text=document.createElement('div');
+
+text.className='bg-text';
+
+text.innerText='maaf kardo madam ji 🥺❤️';
+
+text.style.top=Math.random()*100+'vh';
+
+text.style.animationDuration=(10+Math.random()*10)+'s';
+
+document.body.appendChild(text);
+}
+
+/* POPUP */
 
 function popup(text){
 
 const pop=document.createElement('div');
 
 pop.className='popup';
+
 pop.innerText=text;
 
 pop.style.left=Math.random()*80+'vw';
@@ -439,7 +574,7 @@ pop.remove();
 },4000);
 }
 
-/* Hug Mode */
+/* HUG MODE */
 
 function hugMode(){
 
@@ -447,31 +582,77 @@ popup('I knew it 😎❤️');
 popup('Virtual hug incoming 🫂');
 popup('Madam ji secretly miss kar rahi hai 😭❤️');
 
-for(let i=0;i<100;i++){
+for(let i=0;i<80;i++){
 
 setTimeout(()=>{
 popup('❤️');
-},i*60);
+},i*70);
 
 }
 }
 
-/* Slap */
+/* THAPPAD MODE */
+
+let slapCount=0;
 
 function slapMode(){
 
-document.getElementById('slapText').style.display='block';
+slapCount++;
 
-popup('😭 THAPPAD RECEIVED');
-popup('Sir ji sudhar gaye ❤️');
-popup('Ab zyada tez nahi chalenge 🥺');
+const btn=document.getElementById('slapBtn');
+const text=document.getElementById('slapText');
+
+if(slapCount==1){
+
+text.innerHTML='Are madam ji samajh gaya 😭❤️<br>ab tez nahi chalunga 🥺';
+
+btn.innerText='2nd thappad 😭';
+
 }
 
-/* Forgive Mode */
+else if(slapCount==2){
+
+text.innerHTML='Areee 😭<br>gaal laal ho gaya madam ji ❤️';
+
+btn.innerText='3rd thappad 😭';
+
+}
+
+else if(slapCount==3){
+
+text.innerHTML='Bas karo madam ji 😭🫂<br>Sir ji sudhar gaye ❤️';
+
+btn.innerText='4th thappad 😭';
+
+}
+
+else if(slapCount==4){
+
+text.innerHTML='Are mar gaya 😭❤️<br>ab bilkul zyada nahi bolunga 🥺🙇‍♂️';
+
+btn.innerText='Final thappad 😭';
+
+}
+
+else{
+
+text.innerHTML='Sir ji officially sudhar gaye 😭❤️';
+
+btn.style.display='none';
+
+popup('😭❤️');
+popup('Madam ji jeet gayi 😭');
+
+}
+
+}
+
+/* FORGIVE MODE */
 
 function forgiveMode(){
 
 const msgs=[
+
 'HURRAYYYYY 😭❤️',
 'YIPPEEEEE 🫂',
 'MISSION SUCCESS 😎❤️',
@@ -480,19 +661,23 @@ const msgs=[
 'MERI LADNE WALI BIWI 🫂',
 'MERI MADAM JI 🥺',
 'MERI OVERTHINKING QUEEN 👑',
-'MERI GUSSE WALI PRINCESS ❤️'
+'MERI CUTE SI PANI JI ❤️'
+
 ];
 
 for(let i=0;i<200;i++){
 
 setTimeout(()=>{
+
 popup(msgs[Math.floor(Math.random()*msgs.length)]);
+
 },i*120);
 
 }
+
 }
 
-/* More Manana */
+/* MORE MANANA */
 
 function moreManana(){
 
@@ -500,8 +685,8 @@ document.getElementById('bigLetter').innerHTML=`
 
 <div class="big-letter">
 
-<h1 style="font-size:3rem;color:#ff9ac4;">
-MYYY MISSSS PARAM SUNDER MADAM JI 😭❤️
+<h1 style="font-size:3rem;">
+MYYY MISSS PARAM SUNDER MADAM JI 😭❤️
 </h1>
 
 <br>
@@ -510,17 +695,17 @@ MYYY MISSSS PARAM SUNDER MADAM JI 😭❤️
 
 Madam ji... 🥺❤️<br><br>
 
-Galtiyan hui mujhse 😔<br><br>
+Galtiyan hui mujhse 😔😭<br><br>
 
-Par aap bina sab ajeeb lag raha hai 😭❤️<br><br>
+Par aap bina sab ajeeb lag raha hai 🫂❤️<br><br>
 
-Aap gussa ho sakti ho,
-daant sakti ho,
+Aap gussa ho sakti ho 😭<br>
+daant sakti ho 🥺<br>
 virtual thappad bhi maar sakti ho 😭❤️<br><br>
 
-Par please ekdum se door mat ho jana 🫂❤️<br><br>
+Par please ekdum se door mat ho jana 🫂🥹❤️<br><br>
 
-Sir ji genuinely aapse bohot pyaar karte hai ❤️
+Sir ji genuinely aapse bohot pyaar karte hai ❤️😭
 
 </p>
 
@@ -530,13 +715,14 @@ Sir ji genuinely aapse bohot pyaar karte hai ❤️
 
 }
 
-/* Cursor Hearts */
+/* CURSOR HEARTS */
 
 document.addEventListener('mousemove',function(e){
 
 const heart=document.createElement('div');
 
 heart.className='cursor-heart';
+
 heart.innerText='❤️';
 
 heart.style.left=e.clientX+'px';
@@ -551,3 +737,6 @@ heart.remove();
 });
 
 </script>
+
+</body>
+</html>
