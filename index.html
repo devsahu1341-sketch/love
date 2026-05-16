@@ -1,150 +1,518 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Angel ❤️ Ayush</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sorry Madam Ji 🥺❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin:0;
-  background: linear-gradient(to right, pink, lightblue);
-  text-align:center;
-  font-family: Arial;
-  overflow:hidden;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-h1 {
-  color: red;
-  margin-top: 30px;
+body{
+background:linear-gradient(135deg,#ffe6f0,#fff0f5,#ffe4ec);
+overflow-x:hidden;
+color:#5b2b40;
 }
 
-#text {
-  color: black;
-  font-size: 22px;
-  margin-top: 20px;
+section{
+padding:70px 20px;
+text-align:center;
+position:relative;
 }
 
-img {
-  width: 180px;
-  margin-top: 20px;
+h1,h2,h3{
+margin-bottom:20px;
 }
 
-.heart {
-  position:absolute;
-  color:red;
-  animation: float 5s linear infinite;
+.main-title{
+font-size:4rem;
+font-weight:700;
+color:#ff4f88;
+text-shadow:0 0 15px rgba(255,105,180,0.3);
 }
 
-@keyframes float {
-  0% {transform: translateY(100vh);}
-  100% {transform: translateY(-10vh);}
+.subtitle{
+font-size:1.2rem;
+margin-top:10px;
 }
+
+button{
+border:none;
+padding:15px 28px;
+border-radius:40px;
+background:#ff5f9e;
+color:white;
+font-size:1rem;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(255,105,180,0.3);
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.card-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+width:230px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.card p{
+margin-top:10px;
+font-size:0.95rem;
+}
+
+.floating{
+position:fixed;
+font-size:22px;
+animation:float 8s linear infinite;
+opacity:0.7;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.letter{
+background:white;
+max-width:700px;
+margin:auto;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+line-height:1.8;
+}
+
+.typewriter{
+font-size:1.4rem;
+font-weight:500;
+width:fit-content;
+margin:auto;
+border-right:3px solid;
+white-space:nowrap;
+overflow:hidden;
+animation:typing 6s steps(40,end),blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+.popup-text{
+position:fixed;
+font-size:1.4rem;
+font-weight:bold;
+animation:popup 3s linear forwards;
+z-index:999;
+pointer-events:none;
+}
+
+@keyframes popup{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+}
+
+.big-btn{
+margin-top:20px;
+font-size:1.1rem;
+padding:18px 35px;
+}
+
+.timer{
+font-size:1.5rem;
+margin-top:15px;
+font-weight:bold;
+}
+
+.final-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+#loveRain{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:9999;
+}
+
+.love{
+position:absolute;
+font-size:22px;
+animation:lovefall 5s linear forwards;
+}
+
+@keyframes lovefall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+.hidden{
+display:none;
+}
+
+#forgiveText{
+margin-top:30px;
+font-size:1.2rem;
+line-height:2;
+padding:20px;
+}
+
+audio{
+display:none;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>💖 Angel Weds Ayush 💖</h1>
+<div id="loveRain"></div>
 
-<img src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png">
+<section>
+<h1 class="main-title">Sorry Madam Ji 🥺❤️</h1>
 
-<div id="text"></div>
+<p class="subtitle">
+Ye page ek overthinking sir ji ne banaya hai jo madam ji ko mana raha hai 😔❤️
+</p>
 
-<button onclick="showLove()" 
-style="margin-top:20px; padding:12px 25px; font-size:18px; border:none; border-radius:12px; background:#ff4d6d; color:white;">
-Click me 💌
+<br>
+
+<button onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
+Aage badhu ya gussa hi rahogi? 🥺
 </button>
+</section>
+
+<section id="intro">
+<h2>Dear Angel... 🥺</h2>
+
+<p style="font-size:1.2rem;">
+Ladai to ho gayi... <br>
+par aap bina din bohot ajeeb jaa raha hai 🥲
+</p>
+</section>
+
+<section>
+<h2>Things I Miss 😭</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>😡</h3>
+<p>Aapka random gussa 😭</p>
+</div>
+
+<div class="card">
+<h3>🙄</h3>
+<p>Wo “shut up sir ji” bolna</p>
+</div>
+
+<div class="card">
+<h3>🫂</h3>
+<p>Virtual thappad + hug combo</p>
+</div>
+
+<div class="card">
+<h3>🥺</h3>
+<p>Aapka mujhe daantna bina reason</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Official Apology Letter 💌</h2>
+
+<div class="letter">
+Madam ji... ❤️<br><br>
+
+Galtiyan meri bhi thi, aur shayad bohot over ho gaya tha mai 😔<br>
+
+Par ek baat sach hai... jo bhi tha dil se tha.<br><br>
+
+Mujhe bas hum waapis chahiye... perfect nahi ❤️
+</div>
+</section>
+
+<section>
+<h2>Sach sach batao... itna bhi bure the kya? 😭</h2>
+
+<button class="big-btn" onclick="memoryPopup()">
+Click for Memories 📸
+</button>
+</section>
+
+<section>
+<h2>Emergency Hug Button 🫂</h2>
+
+<button class="big-btn" onclick="hugMode()">
+Press if you secretly miss your sir ji ❤️
+</button>
+</section>
+
+<section>
+<h2>Mood Melt Time 🥺✨</h2>
+
+<div class="typewriter">
+Rishte perfect nahi hote... par kuch log perfect se zyada important hote hain ❤️
+</div>
+</section>
+
+<section>
+<h2>Sir Ji Control Button 😂</h2>
+
+<button class="big-btn" onclick="slapButton()">
+Sir ji ko thappad lagao zyada bolne ke liye 😭
+</button>
+
+<p id="slapText" class="hidden" style="margin-top:25px;font-size:1.2rem;">
+Sir ji ache se samajh gaye 🥺❤️ <br>
+Ab zyada tez nahi chalenge madam ji 🙇‍♂️
+</p>
+</section>
+
+<section>
+<h2>Sir Ji Sad Timer ⏳😭</h2>
+
+<div class="timer" id="timer">
+Loading...
+</div>
+</section>
+
+<section>
+<h2>Decision Time Madam Ji 😔</h2>
+
+<div class="final-buttons">
+
+<button onclick="forgiveMode()">
+Maaf kiya 😌❤️
+</button>
+
+<button onclick="moreManana()">
+Thoda aur manana padega 😏
+</button>
+
+</div>
+
+<div id="forgiveText"></div>
+</section>
 
 <script>
 
-// 💬 Love messages
-let messages = [
-"I love you meri jaan ❤️",
-"I love you madam ji 😘",
-"I love you meri rasmalai 🍮",
-"I love you meri patni ji 💍",
-"I love you meri cutie 😍",
-"I love you meri baccha 🥺",
-"I love you meri queen 👑",
-"I love you meri duniya 🌍",
-"I love you meri chocolate 🍫",
-"I love you meri sunshine ☀️",
-"I love you meri angel 😇",
-"I love you meri heartbeat 💓",
-"I love you meri life ❤️‍🔥",
-"I love you meri jaaneman 😘",
-"I love you meri sweetu 🍭",
-"I love you meri princess 👸",
-"I love you meri everything 💫",
-"I love you meri honey 🍯",
-"I love you meri jaanu 😘",
-"I love you meri doll 🧸",
-"I love you meri smile 😊",
-"I love you meri khushi 😄",
-"I love you meri shona 😘",
-"I love you meri lucky charm 🍀",
-"I love you meri sweetheart 💖",
-"I love you meri soulmate 💫",
-"I love you meri pretty girl 😍",
-"I love you meri forever ❤️",
-"I love you meri jaan ki jaan ❤️‍🔥",
-"I love you meri world 🌍",
-"I love you meri baby doll 🧸",
-"I love you meri dream girl 💭",
-"I love you meri happiness 💖",
-"I love you meri jaanu queen 👑",
-"I love you meri everything forever ♾️",
-"I love you meri cute si wife 💍",
-"I love you meri jaan meri jaan 💕",
-"I love you meri sunshine girl ☀️",
-"I love you meri cuteness overload 🥺",
-"I love you meri life partner 💍",
-"I love you meri heart ❤️",
-"I love you meri jaanu sweetheart 😘",
-"I love you meri lovely 😘",
-"I love you meri angel forever 😇",
-"I love you meri jaan always 💖",
-"I love you meri pyari si girl 💕",
-"I love you meri sab kuch ❤️",
-"I love you meri jaanu baby 🍼",
-"I love you meri zindagi 💞",
-"I love you meri duniya ki sabse pyari 💓",
-"I love you meri muskaan 😊",
-"I love you meri jaan se bhi pyari ❤️",
-"I love you meri future wife 💍",
-"I LOVE YOUUUUU ❤️❤️❤️"
+function createFloating(){
+const emojis=["❤️","🥹","😭","🫂","✨","😘","💖"];
+const el=document.createElement("div");
+
+el.className="floating";
+el.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>{
+el.remove();
+},10000);
+}
+
+setInterval(createFloating,400);
+
+function popup(text){
+const div=document.createElement("div");
+div.className="popup-text";
+div.innerText=text;
+
+div.style.left=Math.random()*80+"vw";
+div.style.top=Math.random()*70+"vh";
+
+document.body.appendChild(div);
+
+setTimeout(()=>{
+div.remove();
+},3000);
+}
+
+function memoryPopup(){
+popup("Our cute moments 😭❤️");
+popup("Our dumb fights 😭");
+popup("Madam ji + Sir ji forever 🫂");
+}
+
+function hugMode(){
+for(let i=0;i<40;i++){
+const love=document.createElement("div");
+love.className="love";
+love.innerText="🫂❤️";
+
+love.style.left=Math.random()*100+"vw";
+love.style.animationDuration=(3+Math.random()*2)+"s";
+
+document.getElementById("loveRain").appendChild(love);
+
+setTimeout(()=>{
+love.remove();
+},5000);
+}
+
+alert("I knew it 😎❤️");
+}
+
+function slapButton(){
+document.getElementById("slapText").classList.remove("hidden");
+
+popup("😭 THAPPAD RECEIVED");
+popup("Sir ji sudhar gaye 🥺");
+}
+
+function moreManana(){
+document.getElementById("forgiveText").innerHTML=`
+
+<h1 style="color:#ff4f88;">MYYY MISSSS PARAM SUNDER MADAM JI 😭❤️</h1>
+
+<br>
+
+<p style="font-size:1.2rem;">
+Madam ji... 🥺<br><br>
+
+Galtiyan hui mujhse, maan raha hu...<br>
+Par aap bina sab ajeeb lag raha hai 😭❤️<br><br>
+
+Aap gussa ho sakti ho, daant sakti ho...<br>
+par please ekdum se door mat ho jana 🫂<br><br>
+
+Sir ji genuinely aapse bohot pyaar karte hai ❤️
+</p>
+
+`;
+}
+
+function forgiveMode(){
+
+const msgs=[
+"HURRAAAHHHH 😭❤️",
+"YIPPEEEEE 🥹🫂",
+"MISSION MADAM JI SUCCESS 😭",
+"LOVE YOU MERI CUTIE ❤️",
+"MERI KAJUKATLI 😭❤️",
+"MERI LADNE WALI BIWI 🫂",
+"MERI MADAM JI 🥹",
+"MERI GUSSE WALI PRINCESS 😭",
+"MERI CUTE SI PANI JI ❤️"
 ];
 
-let i = 0;
-setInterval(() => {
-  document.getElementById("text").innerHTML = messages[i];
-  i = (i + 1) % messages.length;
-}, 1500);
+let i=0;
 
-// ❤️ Hearts
-setInterval(() => {
-  let heart = document.createElement("div");
-  heart.innerHTML = "❤️";
-  heart.className = "heart";
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.fontSize = (10 + Math.random()*20) + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 300);
+const interval=setInterval(()=>{
 
-// 🌹 Proposal
-function showLove() {
-  document.body.innerHTML = `
-    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:linear-gradient(to right, pink, lightblue); text-align:center;">
-      
-      <h1 style="color:red;">🌹 I LOVE YOU SO MUCH MADAM JI 🌹</h1>
-      
-      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" style="width:150px;">
-      
-      <h2>Will you stay with me forever? 💖🥺</h2>
-      
-    </div>
-  `;
+if(i>=msgs.length){
+clearInterval(interval);
+return;
 }
+
+popup(msgs[i]);
+
+i++;
+
+},700);
+
+for(let i=0;i<120;i++){
+
+const love=document.createElement("div");
+love.className="love";
+
+const emojis=["❤️","🥹","😭","🫂","😘","✨","💖"];
+
+love.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+
+love.style.left=Math.random()*100+"vw";
+love.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.getElementById("loveRain").appendChild(love);
+
+setTimeout(()=>{
+love.remove();
+},6000);
+}
+}
+
+const startDate=new Date("2026-01-01");
+
+function updateTimer(){
+
+const now=new Date();
+
+const diff=now-startDate;
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("timer").innerHTML=
+days+" days se sir ji sad baithe hai 😭❤️";
+}
+
+updateTimer();
 
 </script>
 
